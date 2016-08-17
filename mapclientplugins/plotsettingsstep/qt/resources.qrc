@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="plotsettingsstep">
+    <file>images/Action-edit-add-icon.png</file>
+    <file>images/red_cross.png</file>
+    <file>images/utility.png</file>
+  </qresource>
+</RCC>
