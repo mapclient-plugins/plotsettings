@@ -1,4 +1,3 @@
-
 """
 MAP Client Plugin Step
 """
@@ -18,16 +17,16 @@ class PlotSettingsStep(WorkflowStepMountPoint):
 
     def __init__(self, location):
         super(PlotSettingsStep, self).__init__('Plot Settings', location)
-        self._configured = False # A step cannot be executed until it has been configured.
+        self._configured = False  # A step cannot be executed until it has been configured.
         self._category = 'Utility'
         # Add any other initialisation code here:
-        self._icon =  QtGui.QImage(':/plotsettingsstep/images/utility.png')
+        self._icon = QtGui.QImage(':/plotsettingsstep/images/utility.png')
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#plot_settings'))
         # Port data:
-        self._portData0 = None # http://physiomeproject.org/workflow/1.0/rdf-schema#plot_settings
+        self._portData0 = None  # http://physiomeproject.org/workflow/1.0/rdf-schema#plot_settings
         # Config:
         self._config = {}
         self._config['identifier'] = ''
@@ -52,7 +51,7 @@ class PlotSettingsStep(WorkflowStepMountPoint):
 
         :param index: Index of the port to return.
         """
-        return self._portData0 # http://physiomeproject.org/workflow/1.0/rdf-schema#plot_settings
+        return self._portData0  # http://physiomeproject.org/workflow/1.0/rdf-schema#plot_settings
 
     def configure(self):
         """
