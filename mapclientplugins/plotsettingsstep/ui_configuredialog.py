@@ -1,63 +1,87 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qt\configuredialog.ui'
-#
-# Created: Fri Aug 12 13:03:12 2016
-#      by: pyside-uic 0.2.15 running on PySide 1.2.4
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'configuredialog.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide import QtCore, QtGui
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+from  . import resources_rc
+from  . import resources_rc
 
 class Ui_ConfigureDialog(object):
     def setupUi(self, ConfigureDialog):
-        ConfigureDialog.setObjectName("ConfigureDialog")
+        if not ConfigureDialog.objectName():
+            ConfigureDialog.setObjectName(u"ConfigureDialog")
         ConfigureDialog.resize(418, 303)
-        self.gridLayout = QtGui.QGridLayout(ConfigureDialog)
-        self.gridLayout.setObjectName("gridLayout")
-        self.configGroupBox = QtGui.QGroupBox(ConfigureDialog)
-        self.configGroupBox.setTitle("")
-        self.configGroupBox.setObjectName("configGroupBox")
-        self.gridLayout_3 = QtGui.QGridLayout(self.configGroupBox)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.label0 = QtGui.QLabel(self.configGroupBox)
-        self.label0.setObjectName("label0")
+        self.gridLayout = QGridLayout(ConfigureDialog)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.configGroupBox = QGroupBox(ConfigureDialog)
+        self.configGroupBox.setObjectName(u"configGroupBox")
+        self.gridLayout_3 = QGridLayout(self.configGroupBox)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label0 = QLabel(self.configGroupBox)
+        self.label0.setObjectName(u"label0")
+
         self.gridLayout_3.addWidget(self.label0, 0, 0, 1, 1)
-        self.lineEdit0 = QtGui.QLineEdit(self.configGroupBox)
-        self.lineEdit0.setObjectName("lineEdit0")
+
+        self.lineEdit0 = QLineEdit(self.configGroupBox)
+        self.lineEdit0.setObjectName(u"lineEdit0")
+
         self.gridLayout_3.addWidget(self.lineEdit0, 0, 1, 1, 1)
-        self.pushButtonAdd = QtGui.QPushButton(self.configGroupBox)
-        self.pushButtonAdd.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/plotsettingsstep/images/Action-edit-add-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
+        self.pushButtonAdd = QPushButton(self.configGroupBox)
+        self.pushButtonAdd.setObjectName(u"pushButtonAdd")
+        icon = QIcon()
+        icon.addFile(u":/plotsettingsstep/images/Action-edit-add-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButtonAdd.setIcon(icon)
-        self.pushButtonAdd.setObjectName("pushButtonAdd")
+
         self.gridLayout_3.addWidget(self.pushButtonAdd, 2, 0, 1, 1)
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem, 2, 1, 1, 1)
-        self.groupBoxSettings = QtGui.QGroupBox(self.configGroupBox)
-        self.groupBoxSettings.setObjectName("groupBoxSettings")
-        self.verticalLayout = QtGui.QVBoxLayout(self.groupBoxSettings)
-        self.verticalLayout.setObjectName("verticalLayout")
-        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer, 2, 1, 1, 1)
+
+        self.groupBoxSettings = QGroupBox(self.configGroupBox)
+        self.groupBoxSettings.setObjectName(u"groupBoxSettings")
+        self.verticalLayout = QVBoxLayout(self.groupBoxSettings)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+
         self.gridLayout_3.addWidget(self.groupBoxSettings, 1, 0, 1, 2)
+
+
         self.gridLayout.addWidget(self.configGroupBox, 2, 0, 1, 1)
-        self.buttonBox = QtGui.QDialogButtonBox(ConfigureDialog)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName("buttonBox")
+
+        self.buttonBox = QDialogButtonBox(ConfigureDialog)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setOrientation(Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+
         self.gridLayout.addWidget(self.buttonBox, 3, 0, 1, 1)
 
+
         self.retranslateUi(ConfigureDialog)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), ConfigureDialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), ConfigureDialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(ConfigureDialog)
+        self.buttonBox.accepted.connect(ConfigureDialog.accept)
+        self.buttonBox.rejected.connect(ConfigureDialog.reject)
+
+        QMetaObject.connectSlotsByName(ConfigureDialog)
+    # setupUi
 
     def retranslateUi(self, ConfigureDialog):
-        ConfigureDialog.setWindowTitle(QtGui.QApplication.translate("ConfigureDialog", "Configure Step", None, QtGui.QApplication.UnicodeUTF8))
-        self.label0.setText(QtGui.QApplication.translate("ConfigureDialog", "identifier:  ", None, QtGui.QApplication.UnicodeUTF8))
-        self.groupBoxSettings.setTitle(QtGui.QApplication.translate("ConfigureDialog", "Settings", None, QtGui.QApplication.UnicodeUTF8))
+        ConfigureDialog.setWindowTitle(QCoreApplication.translate("ConfigureDialog", u"Configure Step", None))
+        self.configGroupBox.setTitle("")
+        self.label0.setText(QCoreApplication.translate("ConfigureDialog", u"identifier:  ", None))
+        self.pushButtonAdd.setText("")
+        self.groupBoxSettings.setTitle(QCoreApplication.translate("ConfigureDialog", u"Settings", None))
+    # retranslateUi
 
-from . import resources_rc
-from . import resources_rc

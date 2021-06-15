@@ -1,20 +1,19 @@
-
 import json
 
-from PySide import QtGui
+from PySide2 import QtGui, QtWidgets
 from mapclientplugins.plotsettingsstep.ui_configuredialog import Ui_ConfigureDialog
 
 INVALID_STYLE_SHEET = 'background-color: rgba(239, 0, 0, 50)'
 DEFAULT_STYLE_SHEET = ''
 
 
-class ConfigureDialog(QtGui.QDialog):
+class ConfigureDialog(QtWidgets.QDialog):
     """
     Configure dialog to present the user with the options to configure this step.
     """
 
     def __init__(self, parent=None):
-        QtGui.QDialog.__init__(self, parent)
+        QtWidgets.QDialog.__init__(self, parent)
 
         self._ui = Ui_ConfigureDialog()
         self._ui.setupUi(self)
@@ -64,14 +63,15 @@ class ConfigureDialog(QtGui.QDialog):
         Override the accept method so that we can confirm saving an
         invalid configuration.
         """
-        result = QtGui.QMessageBox.Yes
+        result = QtWidgets.QMessageBox.Yes
         if not self.validate():
-            result = QtGui.QMessageBox.warning(self, 'Invalid Configuration',
-                'This configuration is invalid.  Unpredictable behaviour may result if you choose \'Yes\', are you sure you want to save this configuration?)',
-                QtGui.QMessageBox.Yes | QtGui.QMessageBox.No, QtGui.QMessageBox.No)
+            result = QtWidgets.QMessageBox.warning(self, 'Invalid Configuration',
+                                                   'This configuration is invalid.  Unpredictable behaviour may result if you choose \'Yes\', are you sure you want to save this configuration?)',
+                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                   QtWidgets.QMessageBox.No)
 
-        if result == QtGui.QMessageBox.Yes:
-            QtGui.QDialog.accept(self)
+        if result == QtWidgets.QMessageBox.Yes:
+            QtWidgets.QDialog.accept(self)
 
     def validate(self):
         """
@@ -166,7 +166,7 @@ class ConfigureDialog(QtGui.QDialog):
                 except ValueError as e:
                     pass
 
-        assert(None not in settings)
+        assert (None not in settings)
         for s in settings:
             self._addSetting(s[0], s[1])
 
@@ -174,18 +174,18 @@ class ConfigureDialog(QtGui.QDialog):
 def createSetting(setting, value, parent):
     icon = QtGui.QIcon()
     icon.addPixmap(QtGui.QPixmap(":/plotsettingsstep/images/red_cross.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-    pushButton = QtGui.QPushButton(parent)
+    pushButton = QtWidgets.QPushButton(parent)
     pushButton.setIcon(icon)
-    setting_combo = QtGui.QComboBox(parent)
+    setting_combo = QtWidgets.QComboBox(parent)
     setting_combo.addItems(PLOT_SETTINGS)
     if setting:
         index = setting_combo.findText(setting)
         setting_combo.setCurrentIndex(index)
-    lineEdit = QtGui.QLineEdit(parent)
+    lineEdit = QtWidgets.QLineEdit(parent)
     if value:
         lineEdit.setText(value)
 
-    layout = QtGui.QHBoxLayout()
+    layout = QtWidgets.QHBoxLayout()
     layout.addWidget(setting_combo)
     layout.addWidget(lineEdit)
     layout.addWidget(pushButton)
